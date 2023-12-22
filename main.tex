@@ -1,0 +1,59 @@
+
+% Change project title and subtitle here
+% Also dont forget to update project team members in title.tex
+\def\paperTitle{Project Title}
+\def\paperSubTitle{Project Subtitle}
+
+% Document configuration
+% Do not change anything here unless you know what you are doing
+% Go to line 53 to start adding your content
+\documentclass[
+	12pt,twoside,a4paper
+]{report}
+
+% Some useful packages to get you started
+% You can add more packages here if you need them
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{etoc}
+\usepackage{xcolor, soul}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{lipsum} 
+
+\sethlcolor{yellow}
+
+\newcommand{\heart}{\ensuremath\heartsuit}
+\newcommand{\fancylatex}{\heart{} \LaTeX{} \heart}
+
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyhead[l]{\paperTitle}
+	\fancyhead[c]{\paperSubTitle}
+	\fancyhead[r]{\today}
+	\fancyfoot[le, ro]{Page \thepage}
+	\fancyfoot[c]{\fancylatex}
+	\setlength{\headheight}{15pt}
+	\renewcommand{\headrulewidth}{0.2pt}
+	\renewcommand{\footrulewidth}{0.2pt}
+}	
+
+\thispagestyle{plain}
+
+\renewcommand{\etocaftertitlehook}{\thispagestyle{plain}}
+\renewcommand{\etocaftertochook}{\thispagestyle{plain}}
+
+\begin{document}
+	\include{title}
+
+	\tableofcontents
+
+	% Start adding your content here
+	% These are just some examples to start with
+	\include{chapters/introduction/introduction}
+	\include{chapters/test1/test1}
+	\include{chapters/test2/test2}
+	\include{chapters/conclusion/conclusion}
+\end{document}
